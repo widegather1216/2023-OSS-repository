@@ -35,10 +35,16 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 설정이 잘못 됨나면 add나 commit에서 줄바꿈 경고 메세지가 발생히거나 오류가 발생 할 수 있으니 주의 -> safecrlf를 윈도우의 경우 false로 지정해야하고 맥과 리눅스의 경우 input으로 지정
 <hr>
 
-# 저장소 생성
 
 ## 저장소 생성
 - $ git init or $ git init . -> 현재 폴더를 git repository로 만들어서 사용
-- $ git init basic -> 현재 폴더 하부에 basic 폴더를 생성하고 git repository로 사용 <hr>
+- $ git init basic -> 현재 폴더 하부에 basic 폴더를 생성하고 git repository로 사용
 
-# 리눅스 명령어
+<hr>
+
+## 리눅스 기초 명령어
+
+### 폴더
+- $ pwd -> print working directory(현재폴더표시_)
+- $ cd -> change directory(폴더이동)
+- $ mkdir -> make directory(
