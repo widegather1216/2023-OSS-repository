@@ -76,10 +76,11 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 - $ ls -f 파일 표시시 마지막 휴형에 나나태는 파일명을 끝에 표시
 
   ### > 기호
-  > 기호 : 기존의 있는 파일 내용을 지우고 저장<br>
-  >> 기호 : 기존 파일 내용 뒤에 덧붙여서 저장<br>
-  < 기호 : 파일의 데이터를 명령어에 입력<br><br>
+  <p> > 기호 : 기존의 있는 파일 내용을 지우고 저장</p>
+  <p> >> 기호 : 기존 파일 내용 뒤에 덧붙여서 저장</p>
+  <p> < 기호 : 파일의 데이터를 명령어에 입력</p>
 
+  #### 예시
   echo aaa > a.txt -> a.txt 파일에  aaa를 복사<br>
   echo bbb > a.txt -> a.txt 파일에 bbb를 추가<br>
   cat file 1 file2 > file3 file1과 file2를 합쳐 file3에 저장<br>
