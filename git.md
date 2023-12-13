@@ -45,6 +45,45 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 ## 리눅스 기초 명령어
 
 ### 폴더
-- $ pwd -> print working directory(현재폴더표시_)
+- $ pwd -> print working directory(현재폴더표시)
 - $ cd -> change directory(폴더이동)
-- $ mkdir -> make directory(
+- $ mkdir -> make directory(폴더 생성)
+
+### 파일 관련
+- $ touch filename -> 지정한 이름으로 빈파일 생성
+- $ cat fname -> fname의 파일 내용 표시
+- $ cp a b -> 파일 a를 b로 복사
+- $ mv f1 f2 -> 파일 f1을 f2로 이름 변경
+- $ rm fname -> fname 파일을 삭제
+- $ rm -rf dname -> 디렉토리(폴더삭제) -> -r은 디렉토리 내부의 모든 내용삭제, -f는 강제로 파일이나 디렉토리를 삭제
+- $ rm -rf .git -> 전체 폴더를 삭제하거나 .git 삭제
+
+### echo(입력 및 출력)
+- $ echo git bash -> 터미널에 git bash라는 문자열을 출력
+- $ echo 'print()' -> 알번 문자열이 아닌 괄호등 특수기호 출력이 필요하다면 따옴표가 필요
+
+### cat(concatenate)
+- $ cat file1 -> file1의 내용 출력
+- $ cat file1 fil2 -> file1과 file2의 내용을 출력
+- $ cat file1 file2 | [more, head, tail] -> | 바 이후 명령어 대로 출력
+- more은 페이지별로 head는 처음부터 10번째 줄까지 tail은 끝에서부터 10번째까지 출력
+
+### ls
+- $ ls -l -> 파일의 상세정보
+- $ ls -a -> 숨김 파일 표시
+- $ ls -t -> 파일들은 생성 시간 순으로(최신순) 표시
+- $ ls -rt -> 파일들을 생성 시간 순으로(과거순) 표시
+- $ ls -f 파일 표시시 마지막 휴형에 나나태는 파일명을 끝에 표시
+
+  ### > 기호
+  > 기호 : 기존의 있는 파일 내용을 지우고 저장<br>
+  >> 기호 : 기존 파일 내용 뒤에 덧붙여서 저장<br>
+  < 기호 : 파일의 데이터를 명령어에 입력<br><br>
+
+  echo aaa > a.txt -> a.txt 파일에  aaa를 복사<br>
+  echo bbb > a.txt -> a.txt 파일에 bbb를 추가<br>
+  cat file 1 file2 > file3 file1과 file2를 합쳐 file3에 저장<br>
+  cat file4 >> file3 -> file3에 file4의 내용 추가<br>
+  cat < file1 -> file 1의 결과 출력<br>
+
+
