@@ -33,6 +33,6 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 
 ### 줄바꿈 안전 설정
 설정이 잘못 됨나면 add나 commit에서 줄바꿈 경고 메세지가 발생히거나 오류가 발생 할 수 있으니 주의 -> safecrlf를 윈도우의 경우 false로 지정해야하고 맥과 리눅스의 경우 input으로 지정
-
+<hr>
 
 # 저장소 생성
