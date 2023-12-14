@@ -87,4 +87,22 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
   cat file4 >> file3 -> file3에 file4의 내용 추가<br>
   cat < file1 -> file 1의 결과 출력<br>
 
+# 깃 커밋과 로그
+깃의 세가지 영역  
+- 작업 디렉토리(working directory, working tree)
+- 스테이징 영역(staging area, index)
+- 깃 저장소(git repository)
+작업 디렉토리에서 스테이징 열역으로 옮기려 add를 사용
+스테이징 영역의 파일을 깃 저장소로 옮기기 위해 commit 사용
+
+## 커밋 명령어
+- $ git add fname -> 파일을 스테이징 영역으로 추가
+- $ git commit fname -> 파일을 깃 저장소로 커밋
+
+### 커밋의 추가 명령어
+<p>-m 'message' -> 커밋 메세지를 입력 -m 명령어를 사용하지 않으면 기본 편집기가 열려 커밋 메세지를 입력</p>
+<p> -a, --all -> 추가와 커밋을 함께 실행</p>
+<p>ex) $ git commit -am 'message'</p>
+
+
 
