@@ -87,6 +87,8 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
   cat file4 >> file3 -> file3에 file4의 내용 추가<br>
   cat < file1 -> file 1의 결과 출력<br>
 
+  <hr>
+
 # 깃 커밋과 로그
 깃의 세가지 영역  
 - 작업 디렉토리(working directory, working tree)
@@ -109,8 +111,12 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 - $ git log -> 로그 이력을 표시
 - $ git log --oneline -> 로그 이력을 한줄로 표시
 - $ git log [--patch, -p] -> 로그 이력과 함꼐 파일의 변화를 표시
+- $ git log --graph ->  문자 그림으로 로그 이력 그리기
+- $ git log --reverse -> 오래된 커밋부터 표시(--graph와 함께 사용 불가능)
+- $ git log --all -> 모든 브랜치의 로그 이력 표시
+- $ git log -n 최근 n개의 로그 이력 표
 
-  ## 커밋 조 git show
+  ## 커밋 조회 git show
   - $ git show -> 마지막 커밋[HEAD]의 커밋 정보 표시
   - $ git show --oneline -> 커밋과 로그 한 줄과 파일 차이 표시
   - $ git show -s -> 파일 차이는 생략
