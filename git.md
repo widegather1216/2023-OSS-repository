@@ -105,4 +105,14 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 <p>ex) $ git commit -am 'message'</p>
 
 
+## 로그 이력
+- $ git log -> 로그 이력을 표시
+- $ git log --oneline -> 로그 이력을 한줄로 표시
+- $ git log [--patch, -p] -> 로그 이력과 함꼐 파일의 변화를 표시
 
+  ## 커밋 조 git show
+  - $ git show -> 마지막 커밋[HEAD]의 커밋 정보 표시
+  - $ git show --oneline -> 커밋과 로그 한 줄과 파일 차이 표시
+  - $ git show -s -> 파일 차이는 생략
+  - $ git show [HEAD] -> 지정한 헤드의 커밋 정보 표시
+  - $ gir show [commitID] 지정한 commitID의 커밋 정보 표시
