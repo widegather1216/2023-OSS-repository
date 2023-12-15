@@ -168,4 +168,84 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 ## 브랜치
 브런치는 분기를 의미 버전관리를 위해 필요  
 저장소 생성시 기본인 브랜치는 main <br>
-$ git branch -M newBname -> 이미 생성된 저장소의 브랜치 이름을 수정
+
+### 브랜치 명령어
+- $ git branch -M newBname -> 이미 생성된 저장소의 브랜치 이름을 수정
+- $ git branch bname -> 브랜치를 생성 HEAD 이동은 X
+- $ git switch -c bname -> 브랜치를 생성하고 HEAD를 거기로 이동
+- $ git checkout -b bname -> 브랜치를 생성하고 HEAD를 거기로 이동
+- $ git branch -> 커밋이 발생한 브랜치 목록 조회
+- $ git branch -v -> 브랜치마다 마지막 커밋ID와 메세지도 함께 표시
+- $ git switch bname -> HEAD를 지정한 브랜치로 이동
+- $ git checkout bname -> HEAD를 지정한 브랜치로 이동
+- $ git switch -  -> HEAD를 이전에 있던 브랜치로 이동
+- $ git checkout -  -> HEAD를 이전에 있던 브랜치로 이동
+- $ git branch [-d, --delete] bname -> 지정한 병합되어있는 브랜치를 삭제
+- $ git branch -D bname -> 병합이 안되어있어도 브랜치를 삭제
+- $ git branch --merged -> 현재 브랜치를 기준으로 병합된 브랜치를 표시
+- $ git branch --no --merged -> 현재 브랜치를 기준으로 병합되지 않은 브랜치를 표시
+- $ git branch --merged bname -> 지정한 브랜치를 기준으로 병합된 브랜치를 표시
+- $ git branch --no --merged bname -> 지정한 브랜치를 기준으로 병합되지 않은 브랜치를 표시
+
+<hr>
+
+# 원격저장소 복제 clone
+- $ git clone 복사된 주소 -> 원격저장소와 동일한 이름으로 복제
+- $ git clone 복사되 주소 새폴더명 -> 지정한 이름으로 하부폴더를 생성하고 원격저장소를 복제
+- $ git remote -> 원격 저장소 목록 조회
+- $ git remote -v -> 원격저장소 정보 목록 표시
+- $ git remote add nname URL -> 원격저장소 별칭 저장
+- $ git remote show nname -> 자세한 정보 조회
+- $ git remote rename nname nnname -> 별칭수정
+- $ git remote rm name -> 삭제
+
+## push pull
+- push는 원격 저장소로 저장을 의미
+- pull은 원격 저장소에서 지역 저장소로 당겨오는걸 의미
+- $ git push <저장소별칭명> <브랜치명> -> 한번 사용하고 나면 $ git push만으로 사용가능
+- $ git fetch <저장소별칭명> -> 원격 자장소에서 로컬로 소스를 가져옴
+- $ git merge <저장소별칭명>/main -> fetch후 병합
+
+
+<hr>
+
+### 오픈소스소프트웨어
+- 누구나 특별한 제한없이 코드를 보고 사용 할 수 있는 오픈소스 라이선스를 만족하는 SW
+- OSI애서 라이선스를 관리
+- 소프트웨어의 소스코드를 자유롭게 읽고 수정 및 재배포가 가능
+- 저작권은 존재하므로 원저작자가 허용하는 범위에따라 SW를 사용
+
+## 임시저장 stash
+커밋할 필요 없이 파일의 변경사항을 숨기거나 잠시 저장할 수 있는 강력한 도구<br>
+기본적인 세가지 영역이 아닌 임시저장소에 따로 보관함
+
+### stash 명령어
+- $ git stash
+- $ git stash -m 'message'
+- $ git stash save
+- $ git stash save 'message'
+(--keep-index, -k) 스테이징 영역은 제외하고 작업폴더만 저장
+(--include-untracked, -u) untracked 파일도 포함해서 저장
+- $ git stash apply (stash@{n}) -> 작업 디렉토리 내용만 다시 복사 
+- $ git stash apply --index (stash@{n}) -> 스테이지 영역도 함꼐 복사
+-p, --patch 옵션 -> 변경된 모든 사항을 저장하는게 아니라 대화형 프롬프트로 stash애 저장할 것을 따로 지정 가능
+- $ git stash list -> stash 목록 조회
+- $ git stash show @{n}-> 최신 커밋과 stash의 차이를 표시
+- $ git stash show @{n} -p-> 최신 커밋과 stash의 차이를 표시(내용도 함께 표시)
+- $ git stash pop -> 최근 stash 내용을 가져와 반영하고 삭제
+- $ git stash pop stash@{n} -> 지정한 임시저장소 내용을 가져와 반용하고 삭제
+- $ git stash deop -> 최근 임시저장된 내용을 삭제
+- $ git stash drop stash@{n} -> 지정한 임시저장 내용을 삭제
+- $ git stash clear -> 모든 임시저장 내용을 삭제
+- $ git clean -> untracked 파일 삭제 -f 옵션을 주면 무조건 삭제
+
+## merge
+- $ git merge
+- $ git merge --no-ff 병합할 브랜치명 -> 3way 병합 수행
+- $ git merge --ff-only 병합할 브랜치명 -> fast-forward인 경우에만 병합
+- $ git merge --squash 병합할 브랜치명 -> 현재 브랜치에서 커밋 하나만 생성해서 병합(병합되는 브랜치 이력을 남기지 않음)
+- $ git merge --abort -> 병합취소(두 브랜치에서 모두 파일 수정이 있다면 충돌하므로 취소하고 해결한 후 다시 진행 )
+
+### 병합 종류
+- fast-forward merge의 경우 현재 브랜치가 병합할 대상 커밋의 직접적인 조상일 경우 진행되며 간단히 main(master)의 위치가 그 커밋으로 이동되는 형태로 병합 진행
+- 3-way 병합은 새로운 커밋을 이용하여 두 기록을 합치는 방식으로 진행
