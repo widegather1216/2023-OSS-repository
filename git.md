@@ -239,6 +239,8 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 - $ git stash clear -> 모든 임시저장 내용을 삭제
 - $ git clean -> untracked 파일 삭제 -f 옵션을 주면 무조건 삭제
 
+<hr>
+
 ## merge
 - $ git merge
 - $ git merge --no-ff 병합할 브랜치명 -> 3way 병합 수행
