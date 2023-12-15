@@ -116,9 +116,56 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 - $ git log --all -> 모든 브랜치의 로그 이력 표시
 - $ git log -n 최근 n개의 로그 이력 표
 
-  ## 커밋 조회 git show
+## 커밋 조회 git show
 - $ git show -> 마지막 커밋[HEAD]의 커밋 정보 표시
 - $ git show --oneline -> 커밋과 로그 한 줄과 파일 차이 표시
 - $ git show -s -> 파일 차이는 생략
 - $ git show [HEAD] -> 지정한 헤드의 커밋 정보 표시
 - $ gir show [commitID] 지정한 commitID의 커밋 정보 표시
+
+
+## cehckout
+- $ git checkout HEAD ~ -> HEAD 이전 커밋으로 이동
+- $ git checkout -    -> 바로 이전에 있던 checkout으로 이동
+- $ git checkout main -> 브랜치의 마지막 커밋으로 이동
+<br>
+- HEAD는 현재 분기의 가장 최근의 커밋을 의미
+- HEAD~, HEAD^, HEAD~1, HEAD^1 HEAD 바로 이전 커밋을 의미
+- HEAD~~, HEAD^^, HEAD~2, HEAD~^ HEAD의 두개 전 커밋을 의미
+
+<hr>
+
+## 파일비교 diff
+- $ git diff -> 스테이지 영역과 작업 영역을 비교
+- $ git diff [--staged,--cached] (HEAD)-> 깃 저장소 HEAD와 스테이지 영역을 비교
+- $ git diff HEAD -> 깃 저장소 HEAD와 작업영역을 비교
+- $ git diff HEAD~ HEAD -> 헤드 바로 전 커밋과 헤드 상태를 비교
+- $ git diff HEAD~2 HEAD -> 헤드 두개 전 커밋과 헤드 상태를 비교
+
+## 파일 삭제와 복원
+
+### 파일삭제 rm
+- $ rm fname -> 작업 디렉토리에서 파일을 삭제
+- $ gir rm fname -> 작업 디렉토리와 스테이징 영역에서 모두 파일을 삭제
+- $ gir rm --cached fname -> 스테이징 영역에서 파일을 삭제
+
+### 파일복원 restore
+- $ git restore fname -> 작업 디렉토리의 파일을 스테이징 영역의 파일상태로 복원
+- $ git restore --staged fname -> 깃 저장소의 파일로 스테이징 영역의 파일을 복원
+- $ git restore --source=HEAD --staged --worktree fname -> 깃 저장소의 최신 커밋 상태의 파일로 작업 디렉토리와 스테이징 영역의 파일을 복원
+- $ git resotre --source=HEAD fname -> 깃 저장소의 파일로 작업디렉토리를 복원
+- $ git resotre --source=HEAD -- staged fname -> 깃 저장소의 파일로 스테이징 영역으로 복원
+
+<hr>
+
+# 태그
+- $ git tag -a v1.0.0 -m 'first version' -> 작성한 사람의 이메일, 날짜, 매세지 등의 정보를 포함
+- $ git tag -a v1.0.0 -> 기본 설정된 편집기로 메세지 편집
+- $ git tag -> 예전 태그부터 표시
+- $ git show v1.0.0 -> 태그의 정보를 표시
+- $ git tag -d v1.0.0 -> 태그를 삭제
+
+## 브랜치
+브런치는 분기를 의미 버전관리를 위해 필요  
+저장소 생성시 기본인 브랜치는 main <br>
+$ git branch -M newBname -> 이미 생성된 저장소의 브랜치 이름을 수정
