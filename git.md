@@ -251,3 +251,47 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 ### 병합 종류
 - fast-forward merge의 경우 현재 브랜치가 병합할 대상 커밋의 직접적인 조상일 경우 진행되며 간단히 main(master)의 위치가 그 커밋으로 이동되는 형태로 병합 진행
 - 3-way 병합은 새로운 커밋을 이용하여 두 기록을 합치는 방식으로 진행
+
+### rebase
+두 개의 브랜치의 공통조상을 base라고 부름  
+$ git rebase(master,main)으로 base를 이동시킨 후 병합을 진행하면 분기가 하나만 남음 곁가지 브랜치 이력이 사라짐<br>
+
+일반적인 rebase
+- $ git checkout topic
+- $ git rebase main
+- $ git checkout main
+- $ git merge topic
+다른 rebase 방법
+- $ git remase main topic
+- $ git checkout main
+- $ git merge topic
+
+## 커밋 이력 수정
+- $ git commit --amend -m 'new message' -> 최신 커밋 메세지 수정
+- $ git commit --amend -> 기본편집기로 최신 커밋 메세지 수정
+- $ git commit --amend --no-edit -> 메세지 수정 없아 최신 커밋으로 수정
+- $ git rebase [--interactive,-i] HEAD~3 -> HEAD~2에서 HEAD까지 각각의 커밋을 수정
+
+-i의 대화형 명령어
+p(ick) : 해당 커밋을 수정하지 않고 그대로 사용
+r(eword) ; 개별 커밋 메세지를 다시 작성
+s(quash) : 계속된 이후 커밋을 이전 커밋의 결합 (sqush이전 pick 커밋에 squash로 지정한 커밋을 모두 병합)
+d(rop) : 커밋을 삭제
+
+<hr>
+
+## 버전 되돌리기 reset
+깃 저장소를 이전의 커밋으로 되돌리고 그 이후 커밋을 삭제함(작업 영역과 스테이지 영역을 어떻게 유지할지가 관건)
+
+### reset 명령어
+- $ git reset [HEAD~, 커밋ID] -> 스테이지 영역과 깃 저장소만 복사, 수정
+- $ git reset --hard [HEAD~, 커밋ID] -> 작업폴더와 스테이지 영역 깃 저장소 모두 복사, 수정
+- $ git reset (--mixed) [HEAD~, 커밋ID] -> 스테이지 영역과 깃 저장소만 복사, 수정 mixed는 기본 명령어와 같음
+- $ git reset --soft [HEAD~, 커밋ID] --> 깃 저장소만 복사, 수정
+- $ git reset --hard ORIG_HEAD -> reset을 바로 취소하는 명형어
+
+## 커밋 취소 revert
+reset과 다르게 커밋할 것과 add할게 없는 깨끗한 상태여야 수행가능<br>
+작업 폴더와 스테이지 영영, 깃 저장소 모두 복사, 수정
+- $ git revert [HEAD, commitID] -> HEAD를 취소하고 HEAD~로 가는 커밋 생성, 기본 편집기로 커밋 메세지를 수정
+- $ git rever [HEAD,commitID] --no-edit 커멧 메세지가 자동으로 revert 이전 커밋 메세지로 지정되어 새로운 커밋 생성
