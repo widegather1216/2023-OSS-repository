@@ -117,8 +117,8 @@ $ git config --get core.safecrlf -> 줄바꿈 안전 설정을 조회
 - $ git log -n 최근 n개의 로그 이력 표
 
   ## 커밋 조회 git show
-  - $ git show -> 마지막 커밋[HEAD]의 커밋 정보 표시
-  - $ git show --oneline -> 커밋과 로그 한 줄과 파일 차이 표시
-  - $ git show -s -> 파일 차이는 생략
-  - $ git show [HEAD] -> 지정한 헤드의 커밋 정보 표시
-  - $ gir show [commitID] 지정한 commitID의 커밋 정보 표시
+- $ git show -> 마지막 커밋[HEAD]의 커밋 정보 표시
+- $ git show --oneline -> 커밋과 로그 한 줄과 파일 차이 표시
+- $ git show -s -> 파일 차이는 생략
+- $ git show [HEAD] -> 지정한 헤드의 커밋 정보 표시
+- $ gir show [commitID] 지정한 commitID의 커밋 정보 표시
